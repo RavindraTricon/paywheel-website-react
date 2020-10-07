@@ -1,15 +1,44 @@
 .dashboard{
-    margin-top: -150px;
-    margin-left: 80px;
-}
-.frame{
-    width: 782px;
     margin: 0 auto;
-    background-color: black;
-    height: 689px;
+    padding-top: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    // width: 1300px;
+    display: flex;
+}
+.frame1{
+    min-width: 760px;
+    background-color: white;
+    height: 700px;
     border-radius: 10px;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.frame2{
+    min-width: 400px;
+    background-color: white;
+    height: fit-content;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .attendance{
     width: 782px;
     border-radius: 10px;
+}
+.frame3{
+    min-width: 760px;
+    background-color: white;
+    height: auto;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }

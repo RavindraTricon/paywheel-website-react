@@ -1,8 +1,14 @@
-.header {
-    height: 397.5px;
-    background-image: linear-gradient(to bottom, #ea2150 31%, #ffc465);
-    border-radius: 0px 0px 50% 50%;
+._header {
+    height: 70px;
+    // background-image: linear-gradient(to bottom, #ea2150 31%, #ffc465);
+    // background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,233,223,1) 100%);
+    // border-radius: 0px 0px 50% 50%;
+    background: black;
     padding: 0px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
   }
 .top {
     height: 70px;
@@ -18,8 +24,8 @@
     letter-spacing: normal;
     text-align: left;
     color: #ffffff;
-    padding-left: 100px;
-  }
+    padding-left: 20px;
+    padding-top: 20px;  }
   .headingicon {
     opacity: 80%;
     float: left;
@@ -29,7 +35,6 @@
 
   .topright {
     float: right;
-    width: 50%;
     margin-top: 15px;
     font-size: 20px;
     font-weight: 500;
@@ -60,8 +65,7 @@
     float: right;
     border-radius: 50%;
     margin-right: 16px;
-    margin-top: -1%;
-    padding: 10px 5px 0px 5px;
+    padding: 5px 5px 0px 5px;
 
   }
   .text-In-Image {
@@ -99,4 +103,7 @@
     letter-spacing: normal;
     text-align: left;  
     color: white;
+  }
+  .heading:hover{
+    color:red;
   }

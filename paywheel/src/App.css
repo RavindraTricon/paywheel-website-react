@@ -1,0 +1,15 @@
+.App {
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,233,223,1) 100%);
+}
+* {
+    margin: 0px ;
+    padding: 0px;
+}
+
+.Toastify__toast-container--top-center {
+    top: 20em;
+    left: 50%;
+    text-align:  center !important;
+    width: 100% !important;
+    transform: translateX(-50%);
+}

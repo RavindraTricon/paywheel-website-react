@@ -1,0 +1,40 @@
+.web-heading {
+    font-weight: 600;
+    border-bottom: 1px solid black;
+    padding-bottom: 15px;
+    font-size: 25px;
+}
+.web-time {
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: 900;
+}
+.web-button{
+    float: right;
+}
+.web-button > button {
+    background-color: #ea2150;
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    width: 90px;
+    font-size: 15px;
+    margin-top: -9px;
+    font-weight: 600;
+    border: none;
+}
+.web-checkin {
+    margin-top: 40px;
+    font-size: 18px;
+}
+.web-checkout {
+    margin-top: 30px;
+    font-size: 19px;
+}
+.time{
+    float: right;
+    font-weight: 600;
+}
+.web-button > button:hover {
+    cursor: pointer;
+}

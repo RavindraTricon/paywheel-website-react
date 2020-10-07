@@ -1,22 +1,35 @@
 import React from 'react';
 import './header.scss';
+import { Link } from "react-router-dom";
 function header() {
   return (
-    <div className="header">
+    <div className="_header">
         <div className="top">
-            <div className="topleft">
-                <h3 className="heading">Tricon Infotech</h3>
-            </div>
+            <Link to="/">
+                <div className="topleft">
+                    <h3 className="heading">Home</h3>
+                </div>
+            </Link>
+            {/* <Link to="/planner">
+                <div className="topleft">
+                    <h3 className="heading">Planner</h3>
+                </div>
+            </Link>
+            <Link to="/web">
+                <div className="topleft">
+                    <h3 className="heading">WebCheck In</h3>
+                </div>
+            </Link> */}
+            <Link to="/schedular">
+                <div className="topleft">
+                    <h3 className="heading">Task Schedular</h3>
+                </div>
+            </Link>
             <div className="topright">
                 <div className="images rounded-circle profileicon">
                     <span className="text-In-Image">RN</span>
                 </div>
             </div>
-        </div>
-        <div class="content">
-            <h2 class="greeting">Hello,</h2>
-            <h2 class="username">Ravindra Nath</h2>
-            <p class="header-date">30 May, 2020</p>
         </div>
     </div>
   );

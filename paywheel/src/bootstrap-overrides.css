@@ -1,0 +1,16 @@
+.btn-primary  {
+    width: 100% !important;
+}
+.row {
+    margin-left: 0px !important;
+}
+
+.form-check-input{
+    position: unset !important;
+    margin-right: 10px;
+}
+
+.form-check {
+    position: relative;
+    display: block;
+}
