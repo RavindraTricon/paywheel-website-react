@@ -173,6 +173,7 @@ function Dashboard () {
         contacts: evt.emails,
         videoCall: evt.videoConferencing,
         id: Math.random().toString(),
+        videoLink: evt.videoLink
     }])
     const event = {
         start: (evt.startTime),
@@ -181,7 +182,7 @@ function Dashboard () {
         contacts: evt.emails,
         videoCall: evt.videoConferencing,
         id: Math.random().toString(),
-
+        videoLink: evt.videoLink
     }
     axios.post( '/Events.json', event )
         .then( response => {
@@ -201,7 +202,7 @@ function Dashboard () {
         contacts: evt.emails,
         videoCall: evt.videoConferencing,
         id: Math.random().toString(),
-
+        videoLink: evt.videoLink
     }
     axios.get( 'https://schedular-27ac2.firebaseio.com/Events.json' )
         .then( response => {       
@@ -218,6 +219,7 @@ function Dashboard () {
                   contacts: evt.emails,
                   videoCall: evt.videoConferencing,
                   id: Math.random().toString(),
+                  videoLink: evt.videoLink
               }])                
               setSeen(false);
                 console.log(response, 'delte')

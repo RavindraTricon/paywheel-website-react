@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import './popup.css';
 import Form from 'react-bootstrap/Form';
 import format from 'date-fns/format'
-
 import Basic from '../Email'
 
 const PopUp = (props) => {
     if( props.data.action) {
         var addPlan = true;
+        var link = 'https://video.stringmatrix.com/' + Math.random().toString(36).substring(7);
     } else {
         addPlan = false;
+        link = props.data.videoLink;
     }
 
     var startTimeing = format(props.data.start, "yyyy-MM-dd'T'HH:mm");
@@ -18,18 +19,21 @@ const PopUp = (props) => {
     const [startTime, onStartTimeChange] = useState(startTimeing);
     const [endTime, onEndTimeChange] = useState(endTimeing);
     const [description, onDescriptionChange] = useState(props.data.title);
-    const [videoConferencing, onVideoConferencingChange] = useState(false);
+    const [videoConferencing, onVideoConferencingChange] = useState(props.data.videoCall);
     const [emails, setEmails] = useState(props.data.contacts);
+    const [videoLink, setVideoLink] = useState(link);
+    console.log(props, videoConferencing);
+
 
     function handleClick () {
         props.toggle();
     };
     async function handleSubmit(event) {
-        const body = {startTime, endTime, description, emails, videoConferencing}
+        const body = {startTime, endTime, description, emails, videoConferencing, videoLink}
         props.submit(body);  
     } 
      async function handleUpdate(event) {
-        const body = {startTime, endTime, description, emails, videoConferencing}
+        const body = {startTime, endTime, description, emails, videoConferencing, videoLink}
         props.update(body,props.data.id);  
     } 
 
@@ -89,11 +93,20 @@ const PopUp = (props) => {
                             <Form.Group controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Add Video Conferencing" 
                                 value={videoConferencing} 
+                                checked={props.data.videoCall}
                                 onChange={event => {
                                     onVideoConferencingChange(!videoConferencing);
                                 }}
                             />
                             </Form.Group>
+                          
+                            { videoConferencing ? 
+                                <div>
+                                    <a href={videoLink} rel="noopener noreferrer" target="_blank">{videoLink}</a>
+                                </div>
+                                : 
+                                <div></div>
+                            }
                     </div>
                     <div>
                         <h3>Event Description</h3>
