@@ -171,14 +171,17 @@ function Dashboard () {
         end: parseISO(evt.endTime),
         title: evt.description,
         contacts: evt.emails,
-        videoCall: evt.videoConferencing
+        videoCall: evt.videoConferencing,
+        id: Math.random().toString(),
     }])
     const event = {
         start: (evt.startTime),
         end: (evt.endTime),
         title: evt.description,
         contacts: evt.emails,
-        videoCall: evt.videoConferencing
+        videoCall: evt.videoConferencing,
+        id: Math.random().toString(),
+
     }
     axios.post( '/Events.json', event )
         .then( response => {
@@ -188,6 +191,54 @@ function Dashboard () {
             console.log('fail', error)
         } ); 
   };
+  
+  function updateEvent (evt,id) {
+
+    const event = {
+        start: (evt.startTime),
+        end: (evt.endTime),
+        title: evt.description,
+        contacts: evt.emails,
+        videoCall: evt.videoConferencing,
+        id: Math.random().toString(),
+
+    }
+    axios.get( 'https://schedular-27ac2.firebaseio.com/Events.json' )
+        .then( response => {       
+            const arrayOfObj = Object.entries(response.data).map(e => e[1])
+            var myData = Object.keys(response.data).map(key => {
+                return key;
+            })    
+            axios.put( `https://schedular-27ac2.firebaseio.com/Events/${myData[arrayOfObj.findIndex(element => element.id === id)]}/.json`, event)
+            .then( response => {           
+            setEvents( [ ...events.filter(task =>  task.id !== id), {
+                  start: parseISO(evt.startTime),
+                  end: parseISO(evt.endTime),
+                  title: evt.description,
+                  contacts: evt.emails,
+                  videoCall: evt.videoConferencing,
+                  id: Math.random().toString(),
+              }])                
+              setSeen(false);
+                console.log(response, 'delte')
+            } )
+    } ) 
+  };
+  function removeTask(id) {
+        axios.get( 'https://schedular-27ac2.firebaseio.com/Events.json' )
+        .then( response => {       
+            const arrayOfObj = Object.entries(response.data).map(e => e[1])
+            var myData = Object.keys(response.data).map(key => {
+                return key;
+            })    
+            axios.delete( `https://schedular-27ac2.firebaseio.com/Events/${myData[arrayOfObj.findIndex(element => element.id === id)]}/.json` )
+            .then( response => {           
+                setEvents([...events.filter(task =>  task.id !== id)]);
+                setSeen(false);
+                console.log(response, 'delte')
+            } )
+        } )         
+    }
   
 
     return (
@@ -204,7 +255,7 @@ function Dashboard () {
           onShowMore={(evt) => { console.log(evt, 'event')}}
           popup={true}
         />
-        {seen ? <PopUp data = { createEvent} submit = {addEvent} toggle={togglePopClose} /> : null}
+        {seen ? <PopUp data = { createEvent} delete={removeTask} update={updateEvent} submit = {addEvent} toggle={togglePopClose} /> : null}
       </div>
     );
   

@@ -6,9 +6,14 @@ import format from 'date-fns/format'
 import Basic from '../Email'
 
 const PopUp = (props) => {
+    if( props.data.action) {
+        var addPlan = true;
+    } else {
+        addPlan = false;
+    }
 
-        var startTimeing = format(props.data.start, "yyyy-MM-dd'T'HH:mm");
-        var endTimeing = format(props.data.end, "yyyy-MM-dd'T'HH:mm");
+    var startTimeing = format(props.data.start, "yyyy-MM-dd'T'HH:mm");
+    var endTimeing = format(props.data.end, "yyyy-MM-dd'T'HH:mm");
 
     const [startTime, onStartTimeChange] = useState(startTimeing);
     const [endTime, onEndTimeChange] = useState(endTimeing);
@@ -23,10 +28,19 @@ const PopUp = (props) => {
         const body = {startTime, endTime, description, emails, videoConferencing}
         props.submit(body);  
     } 
+     async function handleUpdate(event) {
+        const body = {startTime, endTime, description, emails, videoConferencing}
+        props.update(body,props.data.id);  
+    } 
 
     function handleTitleChange(evt) {
         setEmails(evt);
     }
+    
+    function handleDelete() {
+        props.delete(props.data.id);
+    }
+
     const style = {
         'maxWidth': '510px',
         "maxHeight": '180px',
@@ -90,8 +104,19 @@ const PopUp = (props) => {
                             }}
                         ></textarea>
                     </div>
-                    <div className="plan-button">
-                        <button onClick={() => {handleSubmit();handleTitleChange()}} >Add Plan</button>
+                    <div className="plan-button-popup">
+
+
+                        { addPlan ? 
+                            <div>
+                                <button onClick={() => {handleSubmit();handleTitleChange()}} >Add Plan</button>
+                            </div>
+                            : 
+                            <div>
+                            <button onClick={() => {handleDelete();}} >Delete</button>
+                            <button onClick={() => {handleUpdate();handleTitleChange()}} >Update</button>
+                            </div>
+                        }
                     </div>
                 </div>
         </div>
