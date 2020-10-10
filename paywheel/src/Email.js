@@ -8,7 +8,7 @@ interface IState {
 }
 class Basic extends React.Component<IProps, IState> {
   state = {
-    emails: [],
+    emails: this.props.emails,
   };
 
   render() {
