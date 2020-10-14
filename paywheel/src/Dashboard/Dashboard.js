@@ -287,7 +287,7 @@ function Dashboard () {
           defaultView="month"
           views={['month', 'day', 'agenda', 'week','work_week']}
           events={events}
-          style={{ height: "600px" }}
+          style={{ height: "750px" }}
           onSelectEvent={ (evt) => { togglePop(evt)} }
           selectable={true}
           onSelectSlot={ (evt) => { togglePop(evt)} }
