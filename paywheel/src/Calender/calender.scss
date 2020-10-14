@@ -234,14 +234,16 @@ width: calc(100%/7);
 }
 .starttimepicker{
     float: right;
+    width: 300px;
 }
 
 .starttime{
-    height: 60px;
+    height: 70px;
+    padding-top: 10px;
 }
 
 .endtime{
-    height: 60px;
+    height: 70px;
 }
 .textarea {
     padding: 10px;

@@ -83,6 +83,7 @@ function Schedular() {
         <div className="schedular-heading" onClick={notifySuccess}>
             Schedular
         </div>
+
         <div className='form'>
             <Form onSubmit={handleSubmit} >
                 <Form.Group controlId='task'>

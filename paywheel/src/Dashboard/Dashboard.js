@@ -124,6 +124,11 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from '../axios-order'
 
 
+import emailjs from 'emailjs-com';
+import{ init } from 'emailjs-com';
+init("user_6Xl4utMTC69Y5gqhVr5Uh");
+
+
 const localizer = momentLocalizer(moment);
 
 function Dashboard () {
@@ -169,40 +174,53 @@ function Dashboard () {
     setEvents( [ ...events, {
         start: parseISO(evt.startTime),
         end: parseISO(evt.endTime),
-        title: evt.description,
+        title: evt.title,
+        description: evt.description,
         contacts: evt.emails,
         videoCall: evt.videoConferencing,
         id: Math.random().toString(),
-        videoLink: evt.videoLink
+        videoLink: evt.videoLink,
+        location: evt.location
     }])
+
     const event = {
+        name: 'Abhishek',
         start: (evt.startTime),
         end: (evt.endTime),
-        title: evt.description,
+        title: evt.title,
+        description: evt.description,
         contacts: evt.emails,
         videoCall: evt.videoConferencing,
         id: Math.random().toString(),
-        videoLink: evt.videoLink
+        videoLink: evt.videoLink,
+        location: evt.location
     }
+
     axios.post( '/Events.json', event )
         .then( response => {
             console.log(response)
         } )
         .catch( error => {
             console.log('fail', error)
-        } ); 
+    } ); 
+
+  	const templateId = 'template_dhjdyzc';
+    const serviceId = 'service_sz0at4g';
+    sendFeedback(templateId,serviceId, event)
   };
   
   function updateEvent (evt,id) {
 
     const event = {
+        name:'Abhishek',
         start: (evt.startTime),
         end: (evt.endTime),
         title: evt.description,
         contacts: evt.emails,
         videoCall: evt.videoConferencing,
         id: Math.random().toString(),
-        videoLink: evt.videoLink
+        videoLink: evt.videoLink,
+        location: evt.location
     }
     axios.get( 'https://schedular-27ac2.firebaseio.com/Events.json' )
         .then( response => {       
@@ -219,13 +237,31 @@ function Dashboard () {
                   contacts: evt.emails,
                   videoCall: evt.videoConferencing,
                   id: Math.random().toString(),
-                  videoLink: evt.videoLink
+                  videoLink: evt.videoLink,
+                  location: evt.location
+
               }])                
               setSeen(false);
                 console.log(response, 'delte')
             } )
     } ) 
+    const templateId = 'template_dhjdyzc';
+    const serviceId = 'service_sz0at4g';
+    sendFeedback(templateId,serviceId, event)
   };
+
+    function sendFeedback (templateId, serviceId, event) {
+    emailjs.send(
+      serviceId, templateId,
+      event
+      ).then(res => {
+        console.log('Email successfully sent!')
+      })
+      // Handle errors here however you like, or use a React error boundary
+      .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
+  };
+
+
   function removeTask(id) {
         axios.get( 'https://schedular-27ac2.firebaseio.com/Events.json' )
         .then( response => {       
@@ -249,12 +285,13 @@ function Dashboard () {
           localizer={localizer}
           defaultDate={new Date()}
           defaultView="month"
+          views={['month', 'day', 'agenda', 'week','work_week']}
           events={events}
-          style={{ height: "800px" }}
+          style={{ height: "600px" }}
           onSelectEvent={ (evt) => { togglePop(evt)} }
           selectable={true}
           onSelectSlot={ (evt) => { togglePop(evt)} }
-          onShowMore={(evt) => { console.log(evt, 'event')}}
+          // onShowMore={(evt) => { console.log(evt, 'event')}}
           popup={true}
         />
         {seen ? <PopUp data = { createEvent} delete={removeTask} update={updateEvent} submit = {addEvent} toggle={togglePopClose} /> : null}

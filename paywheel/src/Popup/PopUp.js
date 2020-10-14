@@ -3,14 +3,18 @@ import './popup.css';
 import Form from 'react-bootstrap/Form';
 import format from 'date-fns/format'
 import Basic from '../Email'
+import SearchLocationInput from '../Gplace'
+
 
 const PopUp = (props) => {
     if( props.data.action) {
         var addPlan = true;
         var link = 'https://video.stringmatrix.com/' + Math.random().toString(36).substring(7);
+        var titlee = ''
     } else {
         addPlan = false;
         link = props.data.videoLink;
+        titlee = props.data.title;
     }
 
     var startTimeing = format(props.data.start, "yyyy-MM-dd'T'HH:mm");
@@ -18,27 +22,30 @@ const PopUp = (props) => {
 
     const [startTime, onStartTimeChange] = useState(startTimeing);
     const [endTime, onEndTimeChange] = useState(endTimeing);
-    const [description, onDescriptionChange] = useState(props.data.title);
+    const [description, onDescriptionChange] = useState(props.data.description);
     const [videoConferencing, onVideoConferencingChange] = useState(props.data.videoCall);
     const [emails, setEmails] = useState(props.data.contacts);
+    const [title, setTitle] = useState(titlee);
     const [videoLink, setVideoLink] = useState(link);
-    console.log(props, videoConferencing);
-
+    const [location, setLocation] = useState(props.data.location);
 
     function handleClick () {
         props.toggle();
     };
     async function handleSubmit(event) {
-        const body = {startTime, endTime, description, emails, videoConferencing, videoLink}
+        const body = {startTime, endTime, title, description, emails, videoConferencing, videoLink ,location}
         props.submit(body);  
     } 
      async function handleUpdate(event) {
-        const body = {startTime, endTime, description, emails, videoConferencing, videoLink}
+        const body = {startTime, endTime, title, description, emails, videoConferencing, videoLink, location}
         props.update(body,props.data.id);  
     } 
 
     function handleTitleChange(evt) {
         setEmails(evt);
+    }
+    function handleLocationChange(evt) {
+        setLocation(evt);
     }
     
     function handleDelete() {
@@ -61,22 +68,35 @@ const PopUp = (props) => {
                     <div className="popup-date">
                         Add Event
                     </div>
+                    <div>
+                        <h3>Title</h3>
+                        <span>
+                            <Form.Group>
+                                    <Form.Control type="text" placeholder="Enter Title" 
+                                        required
+                                        value={title}
+                                        onChange={event => {
+                                        setTitle(event.target.value);}}
+                                    />
+                            </Form.Group>
+                        </span>
+                    </div>
                     <div className="starttime">
-                        <span>Start Time</span>
+                        <strong>Start Time</strong>
                         <span className="starttimepicker">
                             <Form.Group controlId='time'>
                                     <Form.Control type="datetime-local" placeholder="Enter Date" 
                                         required
                                         value={startTime}
                                         onChange={event => {
-                                            console.log(event)
                                         onStartTimeChange(event.target.value);}}
                                     />
                             </Form.Group>
                         </span>
-                    </div>
+                    </div>                        
+
                     <div className="endtime">
-                        <span>End Time</span>
+                        <strong>End Time</strong>
                         <span className="starttimepicker">
                              <Form.Group controlId='time'>
                                     <Form.Control type="datetime-local" placeholder="Enter Date" 
@@ -86,6 +106,12 @@ const PopUp = (props) => {
                                         onEndTimeChange(event.target.value);}}
                                     />
                             </Form.Group>
+                        </span>
+                    </div>
+                    <div className="endtime">
+                        <strong>Location</strong>
+                        <span className="starttimepicker">
+                            <SearchLocationInput onLocationChange={handleLocationChange} location={location}/>
                         </span>
                     </div>
                     <Basic onTitleChange={handleTitleChange} emails={emails}/>
