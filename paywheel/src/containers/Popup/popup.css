@@ -130,3 +130,8 @@
 .pac-placeholder {
     color: gray
 }
+
+.react-multi-email [data-tag] {
+    background-color: green !important;
+    color: white !important;
+}
