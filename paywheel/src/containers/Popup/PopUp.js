@@ -33,7 +33,6 @@ const PopUp = (props) => {
         props.toggle();
     };
     async function handleSubmit(event) {
-        console.log('sunbmit')
         if (startTime && endTime && title && description && emails && videoConferencing && videoLink) {
             const body = {startTime, endTime, title, description, emails, videoConferencing, videoLink ,location}
             props.submit(body);  
@@ -56,7 +55,6 @@ const PopUp = (props) => {
     }
     
     function handleDelete() {
-        console.log('delete')
         props.delete(props.data.id);
     }
 

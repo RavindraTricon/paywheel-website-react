@@ -12,7 +12,6 @@ export const signup = (user) => {
         auth()
         .createUserWithEmailAndPassword(user.email, user.password)
         .then(data => {
-            console.log(data);
             const currentUser = auth().currentUser;
             const name = `${user.firstName} ${user.lastName}`;
             currentUser.updateProfile({
@@ -38,7 +37,6 @@ export const signup = (user) => {
                         email: user.email
                     }
                     localStorage.setItem('user', JSON.stringify(loggedInUser));
-                    console.log('User logged in successfully...!');
                     dispatch({
                         type: `${authConstanst.USER_LOGIN}_SUCCESS`,
                         payload: { user: loggedInUser }
@@ -70,7 +68,6 @@ export const signin = (user) => {
         auth()
         .signInWithEmailAndPassword(user.email, user.password)
         .then((data) => {
-            console.log(data);
             const db = firestore();
             db.collection('users')
             .doc(data.user.uid)
@@ -78,7 +75,6 @@ export const signin = (user) => {
                 isOnline: true
             })
             .then(() => {
-                console.log('lohinnnnnn')
                 const name = data.user.displayName.split(" ");
                 const firstName = name[0];
                 const lastName = name[1];

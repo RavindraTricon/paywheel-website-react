@@ -10,7 +10,6 @@ const PrivateRoute = ({component: Component, ...rest}) => {
   return(
     <Route {...rest} component={(props) => {
         const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
-        console.log(user, 'private')
         if(user){
             return <Component {...props} />
         }else{
