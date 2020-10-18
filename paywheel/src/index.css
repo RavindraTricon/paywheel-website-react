@@ -11,18 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-*{
-  margin: 0;
-}
-button:focus {
-  outline: none;
-}
-
-.react-multi-email [data-tag] {
-  background-color: aquamarine !important;
-  color: black !important;
-}
-* :focus{
-  outline: none;
-}

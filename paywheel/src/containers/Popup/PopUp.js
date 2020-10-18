@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import './popup.css';
 import Form from 'react-bootstrap/Form';
 import format from 'date-fns/format'
-import Basic from '../Email'
-import SearchLocationInput from '../Gplace'
+import Basic from '../../Email'
+import SearchLocationInput from '../../Gplace'
 
 
 const PopUp = (props) => {
@@ -26,7 +26,7 @@ const PopUp = (props) => {
     const [videoConferencing, onVideoConferencingChange] = useState(props.data.videoCall);
     const [emails, setEmails] = useState(props.data.contacts);
     const [title, setTitle] = useState(titlee);
-    const [videoLink, setVideoLink] = useState(link);
+    const [videoLink] = useState(link);
     const [location, setLocation] = useState(props.data.location);
 
     function handleClick () {
@@ -68,9 +68,9 @@ const PopUp = (props) => {
                     <div className="popup-date">
                         Add Event
                     </div>
-                    <div>
-                        <h3>Title</h3>
-                        <span>
+                    <div className="starttime">
+                        <strong>Title</strong>
+                        <span className="starttimepicker">
                             <Form.Group>
                                     <Form.Control type="text" placeholder="Enter Title" 
                                         required
@@ -95,7 +95,7 @@ const PopUp = (props) => {
                         </span>
                     </div>                        
 
-                    <div className="endtime">
+                    <div className="starttime">
                         <strong>End Time</strong>
                         <span className="starttimepicker">
                              <Form.Group controlId='time'>
@@ -108,12 +108,12 @@ const PopUp = (props) => {
                             </Form.Group>
                         </span>
                     </div>
-                    <div className="endtime">
+                    {/* <div className="starttime">
                         <strong>Location</strong>
                         <span className="starttimepicker">
                             <SearchLocationInput onLocationChange={handleLocationChange} location={location}/>
                         </span>
-                    </div>
+                    </div> */}
                     <Basic onTitleChange={handleTitleChange} emails={emails}/>
                     <div className="">
                             <Form.Group controlId="formBasicCheckbox">
@@ -135,8 +135,8 @@ const PopUp = (props) => {
                             }
                     </div>
                     <div>
-                        <h3>Event Description</h3>
-                        <textarea style={style} rows="4" cols="100" 
+                        <h4>Event Description</h4>
+                        <textarea style={style} rows="2" cols="100" 
                             value={description} 
                             onChange={event => {
                                     onDescriptionChange(event.target.value);
@@ -164,3 +164,6 @@ const PopUp = (props) => {
  }
 
  export default PopUp ;
+
+
+ 

@@ -6,7 +6,7 @@
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: none; /* Enable scroll if needed */
+    overflow: scroll; /* Enable scroll if needed */
     background-color: rgb(0, 0, 0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
     -webkit-backdrop-filter: blur(3.5px);
@@ -15,11 +15,12 @@
 .popupContent{
     background-color: white;
     width: 550px;
-    min-height: 600px;
+    min-height: auto;
     border-radius: 10px;
     margin: 0px auto;
     padding: 20px;
     padding-bottom: 45px;
+    margin-bottom: 20px;
 }
 
 

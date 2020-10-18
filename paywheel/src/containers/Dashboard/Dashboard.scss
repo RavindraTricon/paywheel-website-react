@@ -1,0 +1,146 @@
+.dashboard{
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    // width: 1300px;
+    display: flex;
+}
+.frame1{
+    min-width: 760px;
+    background-color: white;
+    height: 700px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.frame2{
+    min-width: 400px;
+    background-color: white;
+    height: fit-content;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.attendance{
+    width: 782px;
+    border-radius: 10px;
+}
+.frame3{
+    min-width: 760px;
+    background-color: white;
+    height: auto;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.Calender{
+   
+    width: 90%;
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+
+}
+
+.popup{
+    position: absolute;
+    top: 0%;
+    left: 8%;
+    width: 600px;
+    border-radius: 10px;
+    border: 1px solid;
+    height: auto;
+    padding: 20px;
+    background-color: white;
+    font-size: 18px;;
+}
+
+.cancel-button{
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.task-heading{
+    border-bottom: 1px solid ;
+    padding-bottom: 15px;
+    font-weight: 700;
+    font-size: 1.25em;
+}
+.popup-date{
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 12px;
+    border-bottom: 1px solid;
+    margin-bottom: 20px;
+}
+.Plan-label{
+     text-align: center;
+     margin-top: 15px;
+     margin-bottom: 15px;
+     font-size: 20px;
+     font-weight: 500;
+}
+
+.plan-button > button {
+    background-color: #ea2150;
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    width: 90px;
+    font-size: 15px;
+    margin-top: -9px;
+    font-weight: 600;
+    border: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.plan-button {
+    float: right;
+}
+.calender-heading {
+    font-weight: 600;
+    // border-bottom: 1px solid black;
+    padding-bottom: 15px;
+    font-size: 25px;
+}
+
+.plan-button > button {
+    cursor: pointer;
+}
+
+.react-time-picker__wrapper {
+    display: flex;
+    flex-grow: 1;
+    padding: 5px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    border: thin solid gray;
+}
+.starttimepicker{
+    float: right;
+    width: 300px;
+}
+
+.starttime{
+    height: 55px;
+    padding-top: 10px;
+}
+
+.endtime{
+    height: 55px;
+}
+.textarea {
+    padding: 10px;
+}
