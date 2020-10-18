@@ -33,9 +33,13 @@ const PopUp = (props) => {
         props.toggle();
     };
     async function handleSubmit(event) {
-        if (startTime && endTime && title &&description && emails && videoConferencing && videoLink) {
+        console.log('sunbmit')
+        if (startTime && endTime && title && description && emails && videoConferencing && videoLink) {
             const body = {startTime, endTime, title, description, emails, videoConferencing, videoLink ,location}
             props.submit(body);  
+        } else {
+            
+            window.alert('Please provide required Field for Event');
         }
          
     } 
@@ -52,6 +56,7 @@ const PopUp = (props) => {
     }
     
     function handleDelete() {
+        console.log('delete')
         props.delete(props.data.id);
     }
 
@@ -69,7 +74,6 @@ const PopUp = (props) => {
         <div className="popupForm">
             <div className="popupContent">
                 <span className="close" onClick={handleClick}>&times;    </span>
-                <form onSubmit={handleTitleChange}>
                     <div className="popup-date">
                         Add Event
                     </div>
@@ -155,16 +159,15 @@ const PopUp = (props) => {
 
                         { addPlan ? 
                             <div>
-                                <button type="submit" onClick={() => {handleSubmit();handleTitleChange()}} >Add Plan</button>
+                                <button onClick={() => {handleSubmit();handleTitleChange()}} >Add Plan</button>
                             </div>
                             : 
                             <div>
-                            <button type="submit" onClick={() => {handleDelete();}} >Delete</button>
+                            <button onClick={() => {handleDelete();}} >Delete</button>
                             <button onClick={() => {handleUpdate();handleTitleChange()}} >Update</button>
                             </div>
                         }
                     </div>
-                    </form>
                 </div>
         </div>
    </div>

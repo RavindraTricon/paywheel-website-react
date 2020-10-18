@@ -359,7 +359,6 @@ function Dashboard () {
           if (!data) {
             console.log('No such document!');
           } else {
-          console.log('Document data:', data, auth);
           data.forEach((element,i) => {
             element.start = parseISO(element.start)
             element.end = parseISO(element.end)
@@ -454,7 +453,6 @@ function Dashboard () {
 
   async function removeTask(id) {
     await db.collection('users').doc(auth.uid).collection('Events').doc(id).delete().then(function() {
-    console.log("Document successfully deleted!",auth.uid, id);
     }).catch(function(error) {
         console.error("Error removing document: ", error);
     });
