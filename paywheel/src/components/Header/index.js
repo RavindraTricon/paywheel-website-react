@@ -21,7 +21,7 @@ const Header = (props) => {
   return(
     <header className="header">
         <div style={{display: 'flex'}}>
-          <div className="logo">StringMatrix</div>
+          <div className="logo">Event Calender</div>
             
             {
               !auth.authenticated ? 
