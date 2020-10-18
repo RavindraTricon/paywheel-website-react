@@ -15,7 +15,6 @@ class Basic extends React.Component<IProps, IState> {
     const { emails } = this.state;
     return (
       <>
-        <form>
           <h3>Add contacts</h3>
           <ReactMultiEmail
             placeholder="Input your email"
@@ -42,7 +41,6 @@ class Basic extends React.Component<IProps, IState> {
             }}
           />
           <br />
-        </form>
       </>
     );
   }

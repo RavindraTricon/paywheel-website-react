@@ -349,7 +349,7 @@ function Dashboard () {
         
   React.useEffect(() => {
     getDetails();
-    },[setEvents]
+    },[]
   );
 
   async function getDetails() {

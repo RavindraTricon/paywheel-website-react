@@ -33,8 +33,11 @@ const PopUp = (props) => {
         props.toggle();
     };
     async function handleSubmit(event) {
-        const body = {startTime, endTime, title, description, emails, videoConferencing, videoLink ,location}
-        props.submit(body);  
+        if (startTime && endTime && title &&description && emails && videoConferencing && videoLink) {
+            const body = {startTime, endTime, title, description, emails, videoConferencing, videoLink ,location}
+            props.submit(body);  
+        }
+         
     } 
      async function handleUpdate(event) {
         const body = {startTime, endTime, title, description, emails, videoConferencing, videoLink, location}
@@ -53,11 +56,12 @@ const PopUp = (props) => {
     }
 
     const style = {
-        'maxWidth': '510px',
+        'maxWidth': '420px',
         "maxHeight": '180px',
         'marginBottom': '20px',
         'borderRadius': '15px',
-        'padding': '10px'
+        'padding': '10px',
+        'borderColor': 'lightgrey'
     }
 
   return (
@@ -65,6 +69,7 @@ const PopUp = (props) => {
         <div className="popupForm">
             <div className="popupContent">
                 <span className="close" onClick={handleClick}>&times;    </span>
+                <form onSubmit={handleTitleChange}>
                     <div className="popup-date">
                         Add Event
                     </div>
@@ -104,6 +109,7 @@ const PopUp = (props) => {
                                         value={endTime}
                                         onChange={event => {
                                         onEndTimeChange(event.target.value);}}
+                                        min={startTime}
                                     />
                             </Form.Group>
                         </span>
@@ -138,6 +144,7 @@ const PopUp = (props) => {
                         <h4>Event Description</h4>
                         <textarea style={style} rows="2" cols="100" 
                             value={description} 
+                            required
                             onChange={event => {
                                     onDescriptionChange(event.target.value);
                             }}
@@ -148,15 +155,16 @@ const PopUp = (props) => {
 
                         { addPlan ? 
                             <div>
-                                <button onClick={() => {handleSubmit();handleTitleChange()}} >Add Plan</button>
+                                <button type="submit" onClick={() => {handleSubmit();handleTitleChange()}} >Add Plan</button>
                             </div>
                             : 
                             <div>
-                            <button onClick={() => {handleDelete();}} >Delete</button>
+                            <button type="submit" onClick={() => {handleDelete();}} >Delete</button>
                             <button onClick={() => {handleUpdate();handleTitleChange()}} >Update</button>
                             </div>
                         }
                     </div>
+                    </form>
                 </div>
         </div>
    </div>
