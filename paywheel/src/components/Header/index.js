@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import './style.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../actions';
+import Image from 'react-bootstrap/Image'
 
 /**
 * @author
@@ -21,7 +22,8 @@ const Header = (props) => {
   return(
     <header className="header">
         <div style={{display: 'flex'}}>
-          <div className="logo">Event Calender</div>
+          <div className="logo">                <Image  src={require('../../ASSETS/img10.png')} fluid />   
+</div>
             
             {
               !auth.authenticated ? 
@@ -34,7 +36,7 @@ const Header = (props) => {
 
             
         </div>
-          <div style={{margin: '20px 0', color: '#fff', fontWeight: 'bold'}}>
+          <div style={{margin: '25px 0', color: '#fff', fontWeight: 'normal', fontSize: '28px'}}>
             {auth.authenticated ? ` ${auth.firstName}'s Calender ` : ''}
           </div>
         <ul className="menu">

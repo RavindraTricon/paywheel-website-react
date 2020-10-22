@@ -1,20 +1,71 @@
 .loginContainer, .registerContainer{
-    width: 400px;
-    position: relative;
-    margin: 50px auto;
+    /* width: 400px; */
+    /* position: relative; */
+    /* margin: 50px auto; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-gap: 10px;
+    background-color:white;
 }
-button {
-    background-color: #ea2150;
+.login-btn {
+    background-color: #1fa17e;
     color: white;
     border-radius: 5px;
-    height: 40px;
-    width: 90px;
+    height: 50px;
+    width: 100%;
     font-size: 15px;
-    margin-top: -9px;
     font-weight: 600;
-    border: #ea2150;
+    border: #1fa17e;
     border-radius: 10px !important;
-    margin-left: 10px;
-    margin-right: 10px;
-    float: right;
+   margin-top: 10px;
+}
+
+.card2 {
+    padding-left: 82px;
+    padding-right: 82px;
+    padding-top: 100px;
+}
+.icon{
+    font-size: 40px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.login-heading{
+    margin-top: 40px;
+    margin-bottom: 31px;
+    color: black
+}
+.icon-heading{
+    font-size: 40px;
+    text-align: center;
+
+}
+.LoginWith{
+    margin-top: 45px;
+    text-align: center;
+    color: #6e8594;
+    font-size: 14px;
+}
+.Loginicon{
+    text-align: center;
+    color: #6e8594;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.label{
+    color: #6e8594;
+    font-size: 14px;
+}
+.signupheading{
+    margin-top: 90px;
+    text-align: center;
+    color: #6e8594;
+    font-size: 14px;
+}
+
+.signup{
+    color: #1fa17e;
+    cursor: pointer;
 }

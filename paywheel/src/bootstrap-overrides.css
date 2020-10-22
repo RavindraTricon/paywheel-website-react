@@ -14,3 +14,26 @@
     position: relative;
     display: block;
 }
+
+.form-group {
+    margin-bottom: 2px;
+}
+label {
+    display: inline-block;
+    margin-bottom: 3px !important;
+}
+
+.form-control{
+    height: 50px !important;
+    background-color: #f4f4f4 !important;
+    border-radius: 10px !important;
+    border: none !important;
+}
+
+.container {
+    padding: 0px;
+    max-width: 100%;
+}
+.col {
+    padding: 0px !important;
+}

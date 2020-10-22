@@ -328,6 +328,7 @@ import Layout from '../../components/Layout';
 import { useSelector } from 'react-redux';
 import {  firestore } from 'firebase';
 import format from 'date-fns/format'
+import Header from '../../components/Header/index';
 
 
 
@@ -462,7 +463,8 @@ function Dashboard () {
   
 
     return (
-      <Layout>
+      <div className="calender-dashboard">
+        <Header/>
         <div className="Calender">
           <Calendar
             localizer={localizer}
@@ -478,7 +480,9 @@ function Dashboard () {
           />
           {seen ? <PopUp data = { createEvent} delete={removeTask} update={updateEvent} submit = {addEvent} toggle={togglePopClose} /> : null}
         </div>
-      </Layout>
+      </div>
+      
+        
     );
 }
 

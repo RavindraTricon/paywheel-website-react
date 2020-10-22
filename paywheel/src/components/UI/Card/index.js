@@ -8,7 +8,7 @@ import './style.css';
 
 const Card = (props) => {
   return(
-    <div className="card">
+    <div className="">
         {props.children}
     </div>
    )
