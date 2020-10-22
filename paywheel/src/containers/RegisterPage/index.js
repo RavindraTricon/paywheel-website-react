@@ -55,6 +55,9 @@ const RegisterPage = (props) => {
               onChange={(e) => setFirstName(e.target.value)}
               placeholder="First Name"
             />
+            <span style={{ position:'relative', top: '-40px', left: '10px' }}>
+                          <Image className="icon" src={require('../../ASSETS/man-user.png')} fluid />   
+            </span>
           </Form.Group>
             
             <Form.Group controlId='time'>
@@ -65,6 +68,9 @@ const RegisterPage = (props) => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
             />
+            <span style={{ position:'relative', top: '-40px', left: '10px' }}>
+                          <Image className="icon" src={require('../../ASSETS/at.png')} fluid />   
+            </span>
           </Form.Group>
             <Form.Group controlId='time'>
               <label className="label">Create Password</label>
@@ -74,6 +80,9 @@ const RegisterPage = (props) => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
             />
+            <span style={{ position:'relative', top: '-40px', left: '10px' }}>
+                          <Image className="icon" src={require('../../ASSETS/padlock.png')} fluid />   
+            </span>
           </Form.Group>
             <div>
               <button className="login-btn">Sign up</button>

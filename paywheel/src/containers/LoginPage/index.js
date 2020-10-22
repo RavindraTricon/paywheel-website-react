@@ -60,6 +60,9 @@ const LoginPage = (props) => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
             />
+            <span style={{ position:'relative', top: '-38px', left: '10px' }}>
+                          <Image className="icon" src={require('../../ASSETS/at.png')} fluid />   
+            </span>
           </Form.Group>
           <Form.Group controlId='password'>
               <label className="label">Password</label>
@@ -69,6 +72,9 @@ const LoginPage = (props) => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
             />
+             <span style={{ position:'relative', top: '-40px', left: '10px' }}>
+                          <Image className="icon" src={require('../../ASSETS/padlock.png')} fluid />   
+            </span>
           </Form.Group>
             <div>
               <button className="login-btn">Login</button>

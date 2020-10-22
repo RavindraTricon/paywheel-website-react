@@ -28,6 +28,7 @@ label {
     background-color: #f4f4f4 !important;
     border-radius: 10px !important;
     border: none !important;
+    padding-left: 45px;
 }
 
 .container {
