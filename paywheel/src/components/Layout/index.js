@@ -18,7 +18,7 @@ const Layout = (props) => {
                     <Image className="image-filter"src={require('../../ASSETS/img2.png')} fluid /> :
                  
                
-                      <Image className="image-filter"src={require('../../ASSETS/signup1.png')} fluid />
+                      <Image className="image-filter"src={require('../../ASSETS/signup2.png')} fluid />
                  
             }
             <div className="image-overlay">
